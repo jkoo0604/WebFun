@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        #container {
+            width: 870px;
+            margin: auto;
+            text-align: center;
+        }
+
+        #leftpane, #rightpane {
+            text-align: center;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        #leftpane {
+            width: 620px;
+            background-color: white;
+        }
+
+        #rightpane {
+            width: 200px;
+        }
+
+        p {
+            display: inline-block;
+            text-align: center;
+            width: 100px;
+        }
+
+        img {
+            width: 100px;
+            object-fit: contain;
+        }
+
+        #rightpane h2 {
+            position: fixed;
+            top: 10px;
+            right: 30px;
+            z-index: -1;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function() {
+            
+            function AddImages() {
+                var imgurl = 'raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/';
+                var output = '';
+                for (var i=1;i<=24;i++) {
+                    output+="<p>\n<img src='http://" + imgurl + i + ".png' class='" + i + "'>\n</p>";
+                }
+                $("leftpane").html(output);
+                console.log(output);
+            }   
+            
+            AddImages();           
+            // document.getElementById("leftpane").innerHTML = output;
+            
+            // your jquery codes here
+            // $('button').click(function() {
+            //     var btnid = $(this).attr("id");
+            //     var divid = $(this).parent().attr("id")
+            //     // console.log(btnid, divid);
+
+            //     if (btnid === "fadeOutbtn") {
+            //         $('#' + divid + ' h6').fadeOut();
+            //         // console.log("fade out");
+            //     } else if (btnid === "showbtn") {
+            //         $('#fadeOut h6').show();
+            //         // console.log("show");
+            //     } else {
+            //         // $('#' + divid + ' h6').append("<span>  ** " + $('img').attr('alt') + " **</span>");
+            //         // $('#' + divid + ' span').css("color",'rgb(75,0,130)');
+            //         // console.log("img attr");
+            //         var imgsrc = $('img').attr('src').slice(0,-5);
+            //         var imgnum = $('img').attr('src').slice(imgsrc.length,imgsrc.length+1);
+            //         // console.log(imgsrc, imgnum);
+            //         if (imgnum==1) imgnum = 2;
+            //         else imgnum = 1;
+            //         $('img').attr('src',imgsrc + imgnum + '.png');   
+            //     }
+            // });
+
+            // loop to go through each object
+            // check if the return object value is an array
+            // check if the array has objects
+            // use recursion to repeat (until no object or array is found -> extract value)
+            $("#leftpane img").click(function() {
+                var imgid = $(this).attr('id');
+                var imgsrc = $(this).attr('src');
+                var CallValues = [
+                    // 'id',
+                    'name',
+                    // 'base_experience',
+                    // 'is_default',
+                    // 'order',
+                    // 'abilities',
+                    // 'forms',
+                    // 'game_indices',
+                    // 'held_items',
+                    // 'location_area_encounters',
+                    // 'moves',
+                    // 'sprites',
+                    // 'species',
+                    // 'stats',
+                    'types',
+                    'height',
+                    'weight'
+                ];
+                $.get("'https://pokeapi.co/api/v2/pokemon/" + imgid + "'", function(res) {
+                    // var keyname = object.keys(res)[0];
+                    var keyname = CallValues[0];
+                    var resoutput = "<h3>\n" + res[keyname] + "<img src='" + imgsrc + "'>\n";
+                // name, image, types (in ul), height, weight    
+                    // for(var i = 1; i < object.keys(res).length; i++) {
+                    for (var i=1;i<CallValues.length;i++) {
+                        for (key in res) {
+                            if Object.keys(res) = CallValues[i] {
+
+                                if (Array.isArray(res[key])) {
+                                    
+                                    if (typeof res[key] === 'object' && res[key] !== null) {
+                                        
+                                    }
+                                } else {
+                                    // use value and add to html
+                                }
+                            }
+                        }
+                    }
+                
+                
+                for(var i = 0; i < res.types.length; i++) {
+                    console.log(res.types[i].type.name);
+                }
+            }, "json");
+
+               
+
+            function AddValues() {
+                var output = '';
+                
+                for (key in FuncNames) {
+                    output+="<div id='" + key + "'>\n<h1>" + key + "</h1>\n<button id='" + key + "btn'>" + key + "</button>\n<h6>" + FuncNames[key] + "</h6>\n</div>";
+                }
+                output+="\n<p>\n<img src='./DisappearingNinja1.png' alt='Disappearing Ninja'>\n</p>"
+                document.getElementById("container").innerHTML = output;
+                console.log(output);
+            }   
+        
+        });
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div id="leftpane"></div>
+        <div id="rightpane"></div>
+    </div>
+    
+</body>
+</html>

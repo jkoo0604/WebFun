@@ -1,0 +1,263 @@
+  
+* {
+    /* outline: 1px dotted pink; */
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    color: white;
+}
+
+/* "Learn More" and "More info" are buttons or form submit elements. */
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 950px;
+    margin: auto;
+    min-height: 400px;
+    background-color: #062134;
+}
+
+.header {
+    min-height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-stretch: narrower;
+    font-weight: 300;
+    padding: 25px;
+}
+
+.header span {
+    color: #1B99E8;
+}
+
+.header div {
+    width: 550px;
+    padding: 15px 30px 0px 0px;
+}
+
+.header ul {
+    list-style-type: none;
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.header ul a{
+    font-size: 14px;
+    font-weight: 400;
+    font-stretch: narrower;
+}
+
+.home a {
+    color: rgb(47, 99, 136);
+}
+
+.main {
+    padding: 20px 20px 0px 20px;
+    background-color: white;
+    margin: 0px 10px 0px 10px;
+    border-bottom: solid 2px #062134;
+    
+}
+
+.main img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.uppermain {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+.service {
+    display: inline-block;
+    width: 284px;
+    min-height: 150px;
+    background-color: #1468A8;
+    padding: 10px;
+}
+
+.service p {
+    text-align: left;
+    font-size: 12px;
+    font-stretch: narrower;
+    font-weight: 300;
+    min-height: 130px;
+    padding: 10px;
+}
+
+.servicetitle {
+    display: flex;
+    justify-content: left;
+    align-items: flex-end;
+}
+
+.servicetitle img {
+    width: 32px;
+    background-color: #1468A8;
+    vertical-align: middle;
+    display: inline;
+    background-image: radial-gradient(rgba(13,19,26,1) 65%,rgba(20,104,168,1) 65%);
+}
+
+.servicetitle h3 {
+    font-stretch: narrower;
+    font-weight: 500;
+    display: inline;
+    padding: 0px 0px 5px 8px;
+}
+.service button {
+    background: linear-gradient(to bottom, #49AEEC, #49AEEC 50%, #1991DD 50%);
+    border: none;
+    border-radius: 3px;
+    padding: 10px 30px;
+    margin: 0px 0px 10px 10px;
+    font-size: 14px;
+    font-stretch: narrower;
+    font-weight: 300;
+}
+
+.lowermain {
+    padding: 30px 0px 20px 0px;
+    min-height: 100px;
+}
+
+.lowermain h2,
+.lowermain p {
+    color: #2E4555;
+}
+
+.lower-left {
+    width: 600px;
+    min-height: 100px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.lower-left img,
+.solution {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.lower-left h2 {
+    font-stretch: narrower;
+    font-weight: 300;
+    font-size: 20px;
+    padding-bottom: 15px;
+}
+
+.lower-left img {
+    width: 290px;
+}
+
+.solution {
+    width: 290px;
+    padding-left: 8px;
+}
+
+.solution p {
+    font-size: 12px;
+    font-stretch: narrower;
+    font-weight: 500;
+    padding: 0px 0px 14px 0px;
+}
+
+.solution button {
+    color: #6C97B5;
+    font-size: 13px;
+    font-stretch: narrower;
+    font-weight: 400;
+    border: none;
+    background-color: white;
+}
+
+.lower-right {
+    width: 285px;
+    display: inline-block
+}
+
+.lower-right h2 {
+    font-stretch: narrower;
+    font-weight: 300;
+    font-size: 20px;
+    padding-bottom: 15px;
+}
+
+.bubble {
+    background-color: #DAEDFF;
+    padding: 20px;
+    min-height: 115px;
+    width: 285px;
+    position: absolute;
+}
+
+
+.bubble p{
+    font-size: 14px;
+    font-stretch: narrower;
+    font-style: italic;
+}
+
+.arrow {
+    position: absolute;
+    border-style: solid;
+}
+
+.bottom {
+    border-color: #DAEDFF transparent transparent transparent;
+    border-width: 8px 8px 0px 8px;
+    bottom: -8px;
+}
+
+.testimonialname {
+    font-size: 12px;
+    font-stretch: narrower;
+    font-weight: 300;
+    height: 155px;
+    vertical-align: bottom;
+    padding-top: 140px;
+}
+
+.footer {
+    min-height: 40px;
+    background-color: #DAEDFF;
+    padding: 10px 290px 20px 290px;
+    margin: 0px 10px 10px 10px;
+    border-bottom: #062134 solid 10px;
+}
+
+.footer a {
+    color: #6C97B5;
+}
+
+.footer ul {
+    list-style-type: none;
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.footer ul li a {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+.footerhome a {
+    color: rgb(155, 198, 233);
+}
+

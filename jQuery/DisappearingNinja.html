@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        div {
+            width: 820px;
+            margin: auto;
+        }
+
+        p {
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+        }
+
+        button {
+            background-color: rgb(98, 65, 129);
+            padding: 10px 20px;
+            color: white;
+            font-weight: 600;
+        }
+
+        h3 {
+            padding-bottom: 15px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .colors {
+            width: 100%;
+            object-fit: contain;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // your jquery codes here
+            $('.colors').click(function () { $(this).hide() });
+            $('button').click(function () { $('.colors').show() });
+        });
+        
+
+    </script>
+
+</head>
+<body>
+    <div>
+        <h3>jQuery - assignment 1</h3>
+        <p>
+            <img src="./DisappearingNinja1.PNG" alt="" class="colors">
+        </p>
+        <p>
+            <img src="./DisappearingNinja1.PNG" alt="" class="colors">
+        </p>
+        <p>
+            <img src="./DisappearingNinja1.PNG" alt="" class="colors">
+        </p>
+        <p>
+            <img src="./DisappearingNinja1.PNG" alt="" class="colors">
+        </p>
+        <p>
+            <img src="./DisappearingNinja1.PNG" alt="" class="colors">
+        </p>
+        <p>
+            <img src="./DisappearingNinja1.PNG" alt="" class="colors">
+        </p>
+        <p>
+            <img src="./DisappearingNinja1.PNG" alt="" class="colors">
+        </p>
+        <p>
+            <img src="./DisappearingNinja1.PNG" alt="" class="colors">
+        </p>
+        <button>Restore</button>
+    </div>
+</body>
+</html>

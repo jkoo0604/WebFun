@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Functions</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        #container {
+            width: 440px;
+            margin: auto;
+        }
+
+        button {
+            padding: 10px 0px;
+            background-color: rgb(90, 53, 124);
+            color: white;
+            font-weight: 600;
+            width: 95px;
+            text-align: center;
+        }
+
+
+        #container div {
+            padding: 20px 0px;
+            border-bottom: 2px solid gray;
+        }
+
+        h1 {
+            width: 100%;
+            text-align: center;
+        }
+
+        h6 {
+            width: 330px;
+            padding-left: 15px;
+        }
+
+        h1, button, h6 {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        p {
+            text-align: center;
+            padding: 20px ;
+        }
+
+        img {
+            width: 100px;
+        }
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function() {
+            
+
+            var FuncNames = {
+                'fadeOut': 'Click the button to make this paragraph fade out.',
+                'show': 'Click the button to make the paragraph above reappear.',
+                'attr': 'Click the button to change the src attribute of the image below.'
+            }   
+
+            function AddFunctions() {
+                var output = '';
+                for (key in FuncNames) {
+                    output+="<div id='" + key + "'>\n<h1>" + key + "</h1>\n<button id='" + key + "btn'>" + key + "</button>\n<h6>" + FuncNames[key] + "</h6>\n</div>";
+                }
+                output+="\n<p>\n<img src='./DisappearingNinja1.png' alt='Disappearing Ninja'>\n</p>"
+                document.getElementById("container").innerHTML = output;
+                console.log(output);
+            }   
+            
+            AddFunctions();
+            
+            // your jquery codes here
+            $('button').click(function() {
+                var btnid = $(this).attr("id");
+                var divid = $(this).parent().attr("id")
+                // console.log(btnid, divid);
+
+                if (btnid === "fadeOutbtn") {
+                    $('#' + divid + ' h6').fadeOut();
+                    // console.log("fade out");
+                } else if (btnid === "showbtn") {
+                    $('#fadeOut h6').show();
+                    // console.log("show");
+                } else {
+                    // $('#' + divid + ' h6').append("<span>  ** " + $('img').attr('alt') + " **</span>");
+                    // console.log("img attr");
+                    var imgsrc = $('img').attr('src').slice(0,-5);
+                    var imgnum = $('img').attr('src').slice(imgsrc.length,imgsrc.length+1);
+                    // console.log(imgsrc, imgnum);
+                    if (imgnum==1) imgnum = 2;
+                    else imgnum = 1;
+                    $('img').attr('src',imgsrc + imgnum + '.png');   
+                }
+            });
+                
+        });
+    </script>
+</head>
+<body>
+    <div id="container"></div>
+</body>
+</html>

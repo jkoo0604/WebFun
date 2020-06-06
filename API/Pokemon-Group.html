@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's that Pokemon</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    #container {
+        width: 1200px;
+        margin: auto;
+        /* text-align: center; */
+    }
+
+    #leftpane, #rightpane {
+        text-align: center;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    #leftpane {
+        width: 620px;
+        background-color: white;
+        border: 1px solid black;
+    }
+
+    #rightpane {
+        width: 300px;
+        border: 10px solid red;
+        padding: 16px;
+        position: fixed;
+        top: 10px;
+        left: 720px;
+    }
+    h2{
+        margin:6px;
+    }
+    li{
+        font-size: 14;
+        font-weight: 100;
+    }
+
+    p {
+        display: inline-block;
+        text-align: center;
+        width: 100px;
+    }
+
+    img {
+        width: 100px;
+        object-fit: contain;
+    }
+
+    #rightpane img {
+        display: block;
+        margin: auto;
+    }
+    </style>
+
+</head>
+<body>
+    <div id="container">
+        <div id="leftpane"></div>
+        <div id="rightpane">
+            <h1 id="name"></h1>
+            <img src="" alt="">
+            <h2 id='intro'>Click any Pokemon</h2>
+            <p id='info'></p> 
+        </div>
+    </div>
+    <script>
+        function AddImages() {
+                var imgurl = 'raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/';
+                var output = '';
+                for (var i=1;i<=60;i++) {
+                    output+="<p>\n<img src='http://" + imgurl + i + ".png' class='" + i + "'>\n</p>";
+                }
+                $("#leftpane").html(output);
+            }   
+            
+        AddImages();
+
+        $("#leftpane img").click(function() {
+            $('#intro').hide();
+            var imgid = $(this).attr('class');
+            $.get('https://pokeapi.co/api/v2/pokemon/'+imgid, function(res){
+                console.log(res);
+                $('#name').html(res.name);
+                $('#rightpane img').attr('src',res.sprites.front_shiny);
+                var types_str = '<ul>';
+                for(var i = 0; i < res.types.length; i++){
+                    types_str += '<li>'+res.types[i].type.name+'</li>';
+                }
+                types_str += '</ul>';
+                $('#info').html('<h2>Types</h2><p>'+types_str+'</p><h2>Height</h2><p>'+res.height+'</p><h2>Weight</h2><p>'+res.weight+'</p>')
+            });
+        })
+    </script>
+</body>
+</html>

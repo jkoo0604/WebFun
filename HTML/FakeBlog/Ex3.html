@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Verdi's Operas</title>
+        <meta name="description" content="Introduction of some of Verdi's most famous operas">
+    </head>
+    
+    <body>
+        <div id="composername" style="background-color:lightslategrey">
+            <h1 align="center">Giuseppe Verdi</h1>
+        </div>
+        
+        <img src="https://cdn.britannica.com/52/176952-050-AFD2AFE9/Giuseppe-Verdi.jpg" width=200 alt="Photo of Verdi">
+        
+        <p>Giuseppe Verdi was born in Italy in 1813, prior to Italian unification. Verdi produced many successful operas, including La Traviata, Falstaff and Aida, and became known for his skill in creating melody and his profound use of theatrical effect. Additionally, his rejection of the traditional Italian opera for integrated scenes and unified acts earned him fame. Verdi died on January 27, 1901, in Milan, Italy. 
+        <a href="https://www.biography.com/musician/giuseppe-verdi">(biography.com)</a>
+        </p>
+
+
+        <p>Predecessors who influenced Verdi:</p>
+            <ul>
+                <li>Gioachino Rossini</li>
+                <li>Vincenzo Bellini</li>
+                <li>Giacomo Meyerbeer</li>
+                <li>Gaetano Donizetti</li>
+                <li>Saverio Mercadante</li>
+            </ul>
+       
+
+        
+        <h2>Some of Verdi's most famous operas:</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td width="20%" align="center">Aida</td>
+                    <td width="80%">A tragic tale of forbidden love, Aida follows the struggle of the Ethiopian princess, Aida, and the young Egyptian warrior, Radamès, to decide between love or loyalty to their countries. </td>
+                </tr>
+                <tr>
+                    <td align="center">Otello</td>
+                    <td>Based on the famous play by Shakespeare, Verdi's Otello follows the story of the happy couple, Otello, the governor of Cyprus and Venetian general, and Desdemona as they are dragged through an evil plot constructed by Iago. </td>
+                </tr>
+                <tr>
+                    <td align="center">Rigoletto</td>
+                    <td>Its tragic story revolves around the licentious Duke of Mantua, his hunch-backed court jester Rigoletto, and Rigoletto's beautiful daughter Gilda. The opera's original title, La maledizione (The Curse), refers to a curse placed on both the Duke and Rigoletto by a courtier whose daughter the Duke has seduced with Rigoletto's encouragement. The curse comes to fruition when Gilda falls in love with the Duke and sacrifices her life to save him from the assassin hired by her father.</td>
+                </tr>
+                <tr>
+                    <td align="center">La Traviata</td>
+                    <td>Based on the novel by Alexandre Dumas fils, it is Verdi's most popular opera and one of the most performed operas today. La traviata means “the fallen woman” or “the one who goes astray” and refers to the main character, Violetta Valéry, a courtesan.</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        
+        <h3>Fill out a short survey to sign up for our newsletter:</h3>
+        <form action="process.php" method="post">
+            <p>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" placeholder="Enter email">
+            </p>
+            <p>Would you like weekly emails or monthly digests?<br>
+                <input type="radio" id ="weekly" name="signup" value="weekly">
+                <label for="weekly">Weekly</label>
+                <input type="radio" id ="monthly" name="signup" value="monthly">
+                <label for="monthly">Monthly</label>
+            </p>
+            <p>Choose some of your favorite Verdi works:<br>
+                <input type="checkbox" id="opera1" name="favopera" value="opera1">
+                <label for="opera1">Aida</label>
+                <input type="checkbox" id="opera2" name="favopera" value="opera2">
+                <label for="opera2">La Traviata</label>
+                <input type="checkbox" id="opera3" name="favopera" value="opera3">
+                <label for="opera3">Otello</label>
+                <input type="checkbox" id="opera4" name="favopera" value="opera4">
+                <label for="opera4">Rigoletto</label>
+                <input type="checkbox" id="opera5" name="favopera" value="opera5">
+                <label for="opera5">Other</label> 
+            </p> 
+            <p>How many opera performances do you see a year?
+                <select name="perfno">
+                    <option value="onethree">1 - 3</option>
+                    <option value="fourmore">More than 4</option>
+                    <option value="none">I've never seen a live opera performance</option>
+                </select>
+            </p>
+            <p>What would you like to know most about?
+                <select name="newletter">
+                    <option value="general">General information about operas</option>
+                    <option value="local">Upcoming performance in your area</option>
+                    <option value="new">Introduction to new operas by contemporary composers</option>
+                    <option value="other">Other</option>
+                </select>
+            </p> 
+            <p>
+                <input type="submit" value="Submit">
+            </p>
+        </form>
+        
+    </body>
+</html>

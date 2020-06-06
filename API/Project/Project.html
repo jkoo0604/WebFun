@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>WebFun Project</title>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="sort.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Spoontacular</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse topnavcustom" id="navbarNavDropdown">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Recipes
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Search for New Recipes</a>
+                            <a class="dropdown-item" href="#">Saved Recipes</a>
+                            <a class="dropdown-item" href="#">Start Your Own</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Shopping List</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link active" href="#">What's in My Fridge?</a>
+                    </li>
+                </ul>
+                <svg class="bi bi-person" width="1.8em" height="1.8em" viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+                </svg>
+            </div>
+        </nav>
+        <div class="leftpane">
+            <div class="intro">
+                <p>Save ingredients in your fridge and pantry and find recipes.</p>
+            </div>
+            <div class="addnewrow">
+                <img src="./Img/icons-1.0.0-alpha3/icons/plus-square.svg" alt="">
+            </div>
+            <div class="table-responsive ingtable">
+                <table class="table table-striped table-hover table-sm" id="tableforsort">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">Ingredient</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col" onclick="sort_date();">Expiration <svg class="bi bi-arrow-up-down" width="1.2em" height="1.2em" viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M11 3.5a.5.5 0 01.5.5v9a.5.5 0 01-1 0V4a.5.5 0 01.5-.5z" clip-rule="evenodd"/>
+                            <path fill-rule="evenodd" d="M10.646 2.646a.5.5 0 01.708 0l3 3a.5.5 0 01-.708.708L11 3.707 8.354 6.354a.5.5 0 11-.708-.708l3-3zm-9 7a.5.5 0 01.708 0L5 12.293l2.646-2.647a.5.5 0 11.708.708l-3 3a.5.5 0 01-.708 0l-3-3a.5.5 0 010-.708z" clip-rule="evenodd"/>
+                            <path fill-rule="evenodd" d="M5 2.5a.5.5 0 01.5.5v9a.5.5 0 01-1 0V3a.5.5 0 01.5-.5z" clip-rule="evenodd"/>
+                          </svg></th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody id="sortable">
+                      <tr>
+                        <td>Avocado</td>
+                        <!-- <th scope="row">Avocado</th> -->
+                        <td>3</td>
+                        <td>5/2/2020</td>
+                        <td>
+                            <img src="./Img/icons-1.0.0-alpha3/icons/pencil-square.svg" class="editbtn">
+                            <img src="./Img/icons-1.0.0-alpha3/icons/trash.svg" class="rmbtn">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Onion</td>
+                        <td>4</td>
+                        <td>5/7/2020</td>
+                        <td>
+                            <img src="./Img/icons-1.0.0-alpha3/icons/pencil-square.svg" class="editbtn">
+                            <img src="./Img/icons-1.0.0-alpha3/icons/trash.svg" class="rmbtn">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Tomato</td>
+                        <td>6</td>
+                        <td>5/4/2020</td>
+                        <td>
+                            <img src="./Img/icons-1.0.0-alpha3/icons/pencil-square.svg" class="editbtn">
+                            <img src="./Img/icons-1.0.0-alpha3/icons/trash.svg" class="rmbtn">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Egg</td>
+                        <td>9</td>
+                        <td>5/16/2020</td>
+                        <td>
+                            <img src="./Img/icons-1.0.0-alpha3/icons/pencil-square.svg" class="editbtn">
+                            <img src="./Img/icons-1.0.0-alpha3/icons/trash.svg" class="rmbtn">
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <input type="hidden" id="date_order" value="desc">
+            </div>
+
+            
+                <form>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1"># of Search Results</label>
+                        <select class="form-control form-control-sm" id="rescount">
+                          <option>5</option>
+                          <option>10</option>
+                          <option>15</option>
+                          <option>20</option>
+                          <option>30</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlSelect2"># of Ingredients</label>
+                        <select class="form-control form-control-sm" id="ingcount">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                      </div>
+                    <button class="btn btn-dark simplesearchbtn">Submit</button>
+                    <a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Advanced Search
+                    </a>
+                  </form>
+                  <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                        <form>
+                            <div class="form-row">
+                                <div class="col-auto my-1">
+                                    <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Cuisines</label>
+                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                      <option selected>Cuisines</option>
+                                      <option value="1">One</option>
+                                      <option value="2">Two</option>
+                                      <option value="3">Three</option>
+                                    </select>
+                                </div>
+                                <div class="col-auto my-1">
+                                    <label for="exampleFormControlSelect2">Intolerances</label>
+                                    <select multiple class="form-control" id="exampleFormControlSelect2">
+                                      <option>1</option>
+                                      <option>2</option>
+                                      <option>3</option>
+                                      <option>4</option>
+                                      <option>5</option>
+                                    </select>
+                                  </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Max. Calories">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Max. Ready Time">
+                                </div>
+                                
+                            </div>
+                        </form>
+                    </div>
+                  </div>
+    
+    
+    
+                <!-- <button type="button" class="btn btn-outline-dark testsearch">Dark</button> -->
+        </div>
+        <div class="rightpane">
+            <!-- <div class="table-responsive restable">
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">RESULTS</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><img src="https://spoonacular.com/recipeImages/102259-312x231.jpg" alt="[RECIPE ID" class="resimg"></td>
+                        <td>
+                            <p class="resttl">
+                                <span class="resh6">Yum Yum Avocado Salsa sdffh fgjkl </span>
+                                <span class='resicon'>
+                                    
+                                    <img src="./Img/icons-1.0.0-alpha3/icons/heart.svg" alt="" class="hearticon">
+                                    <img src="./Img/icons-1.0.0-alpha3/icons/card-list.svg" alt="" class="listicon">
+                                    <img src="./Img/icons-1.0.0-alpha3/icons/info-square-fill.svg" alt="" class="infoicon">
+                                </span>
+                            </p>
+                            <p class="resdesc">Used Ingredients: avocado, onion, tomato</p>
+                        </td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+            </div> -->
+        </div>
+        <!-- <img src="./Img/icons-1.0.0-alpha3/icons/info-square-fill.svg" alt="" data-toggle="modal" data-target="#infomodal"> -->
+        <!-- <img src="./Img/icons-1.0.0-alpha3/icons/heart-fill.svg" alt="" class="hearticon"> -->
+        <!-- <a href="#infomodal" data-toggle="modal"><img src="./Img/icons-1.0.0-alpha3/icons/info-square-fill.svg" alt="" data-target="#infomodal"></a> -->
+        <div class="modal fade" id="infomodal" tabindex="-1" role="dialog" aria-labelledby="infomodal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalScrollableTitle">Bruschetta Style Pork & Pasta</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body resmodal">
+                        <img src='https://spoonacular.com/recipeImages/715538-556x370.jpg' class='modalimg'>
+                        <p class="ressum"> You can never have too many main course recipes, so give What to make for dinner tonight?? Bruschetta Style Pork & Pastan a try. For <b>$1.45 per serving</b>, this recipe <b>covers 22%</b> of your daily requirements of vitamins and minerals. This recipe makes 5 servings with <b>521 calories</b>, <b>35g of protein</b>, and <b>10g of fat</b> each. 163 people have tried and liked this recipe. If you have bow tie pasta, pork chops, recipe makers chicken bruschetta pasta, and a few other ingredients on hand, you can make it. To use up the pasta you could follow this main course with the <a href=\"https://spoonacular.com/recipes/chocolate-dessert-pasta-138646\">Chocolate Dessert Pasta</a> as a dessert. This recipe is typical of Mediterranean cuisine. From preparation to the plate, this recipe takes around <b>35 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 90%</b>. This score is awesome. Try <a href=\"https://spoonacular.com/recipes/dinner-tonight-grilled-romesco-style-pork-209128\">Dinner Tonight: Grilled Romesco-Style Pork</a>, <a href=\"https://spoonacular.com/recipes/dinner-tonight-chickpea-bruschetta-31868\">Dinner Tonight: Chickpea Bruschetta</a>, and <a href=\"https://spoonacular.com/recipes/dinner-tonight-pasta-with-pork-loin-chinese-eggplant-baby-bok-choy-and-spicy-miso-sauce-206706\">Dinner Tonight: Pasta with Pork Loin, Chinese Eggplant, Baby Bok Choy, and Spicy Miso Sauce</a> for similar recipes.</p>
+
+                        <ul>
+                            <li>Ready in Minutes: 35</li>
+                            <li>Dairy Free: No</li>
+                            <li>Gluten Free: No</li>
+                            <li>Servings: 5</li>
+                            <li>Calories: 521.13</li>
+                        </ul>
+
+          
+                    </div>
+                    <div class="modal-footer">
+                        <img src="./Img/icons-1.0.0-alpha3/icons/heart.svg" alt="" class="hearticon">
+                        <img src="./Img/icons-1.0.0-alpha3/icons/card-list.svg" alt="" class="listicon">
+                        <img src="./Img/icons-1.0.0-alpha3/icons/arrow-bar-right.svg" alt="" class="exticon">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Button trigger modal
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#infomodal">
+    Launch demo modal
+  </button>
+   -->
+  <!-- Modal -->
+  
+
+
+
+</body>
+</html>
